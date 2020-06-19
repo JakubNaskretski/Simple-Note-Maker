@@ -2,16 +2,20 @@ public class Model {
 
     private String lastVisitedCatalogueModel, absPathRetModel, selectedFileModel,selectedFileNameExtensionModel,
             selectedFileNameNoExtensionModel, foregroundColorModel, backgroundColorModel,fontSizeModel ,fileStatusModel,
+            lastForegroundColorModel, lastBackgroundColorModel, lastFontSizeModel ,lastFileStatusModel,
             city = "City: ", road = "Road: ", number = "Number: ";
 
     private boolean wereChangedSettings = false;
 
     public Model() {
         this.selectedFileNameNoExtensionModel = "bez tytułu";
-        this.selectedFileNameExtensionModel = "bezt tytułu.txt";
+        this.selectedFileNameExtensionModel = "bez tytułu.txt";
         this.foregroundColorModel = "fg";
+        this.lastForegroundColorModel = "fg";
         this.backgroundColorModel = "bg";
+        this.lastBackgroundColorModel = "bg";
         this.fontSizeModel = "size";
+        this.lastFontSizeModel = "size";
         this.fileStatusModel = "new";
         this.lastVisitedCatalogueModel = System.getProperty("user.dir");
     }
@@ -106,5 +110,37 @@ public class Model {
 
     public void setLastVisitedCatalogueModel(String lastVisitedCatalogueModel) {
         this.lastVisitedCatalogueModel = lastVisitedCatalogueModel;
+    }
+
+    public String getLastForegroundColorModel() {
+        return lastForegroundColorModel;
+    }
+
+    public void setLastForegroundColorModel(String lastForegroundColorModel) {
+        this.lastForegroundColorModel = lastForegroundColorModel;
+    }
+
+    public String getLastBackgroundColorModel() {
+        return lastBackgroundColorModel;
+    }
+
+    public void setLastBackgroundColorModel(String lastBackgroundColorModel) {
+        this.lastBackgroundColorModel = lastBackgroundColorModel;
+    }
+
+    public String getLastFontSizeModel() {
+        return lastFontSizeModel;
+    }
+
+    public void setLastFontSizeModel(String lastFontSizeModel) {
+        this.lastFontSizeModel = lastFontSizeModel;
+    }
+
+    public String getLastFileStatusModel() {
+        return lastFileStatusModel;
+    }
+
+    public void setLastFileStatusModel(String lastFileStatusModel) {
+        this.lastFileStatusModel = lastFileStatusModel;
     }
 }

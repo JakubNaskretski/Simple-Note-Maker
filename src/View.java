@@ -21,11 +21,15 @@ public class View {
             fontEightPChooserMenuItem, fontTeenPChooserMenuItem, fontTwelvePChooserMenuItem, fontFourTeenPChooserMenuItem, fontSixTeenPChooserMenuItem,
             fontEightTeenPChooserMenuItem, fontTwentyPChooserMenuItem, fontTwentyTwoPChooserMenuItem, fontTwentyFourPChooserMenuItem;
 
+    private JLabel greenLabel, orangeLabel, redLabel, BlackLabel, whiteLabel, yellowLabel, blueLabel;
+
     private JRadioButtonMenuItem foreGroundGreenMenuItem, foreGroundOrangeMenuItem, foreGroundRedMenuItem, foreGroundBlackMenuItem, foreGroundWhiteMenuItem, foreGroundYellowMenuItem, foreGroundBlueMenuItem,
             backGroundGreenMenuItem, backGroundOrangeMenuItem, backGroundRedMenuItem,backGroundBlackMenuItem, backGroundWhiteMenuItem, backGroundYellowMenuItem, backGroundBlueMenuItem;
 
     private JPanel statusPanel, statusInformationSubPanel,  settingsInformationSubPanel;
+
     private JLabel foregroundStatusLabel, backgroundStatusLabel, fontSizeStatusLabel, fileStatusLabel;
+
     private ButtonGroup menuForeGroundRadioButtonGroup, menuBackGroundRadioButtonGroup;
 
     public View() {
@@ -53,8 +57,8 @@ public class View {
         saveAsMenuItem = new  JMenuItem("Save as", 'a');
         exitMenuItem = new  JMenuItem("Exit", 'x');
 
-        Border redline = BorderFactory.createMatteBorder(2,0,0,0, Color.red);
-        exitMenuItem.setBorder(redline);
+        Border redLine = BorderFactory.createMatteBorder(2,0,0,0, Color.red);
+        exitMenuItem.setBorder(redLine);
 
         openMenuItem.setAccelerator(KeyStroke.getKeyStroke(
                 KeyEvent.VK_O, ActionEvent.CTRL_MASK));
@@ -624,5 +628,13 @@ public class View {
 
     public void setBackGroundBlueMenuItem(JRadioButtonMenuItem backGroundBlueMenuItem) {
         this.backGroundBlueMenuItem = backGroundBlueMenuItem;
+    }
+
+    public JLabel getGreenLabel() {
+        return greenLabel;
+    }
+
+    public void setGreenLabel(JLabel greenLabel) {
+        this.greenLabel = greenLabel;
     }
 }

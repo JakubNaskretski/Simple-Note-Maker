@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.WindowEvent;
+import java.awt.geom.Ellipse2D;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -15,9 +16,14 @@ public class Controller {
         model = m;
         view = v;
         initView();
-         jfc = new JFileChooser(model.getLastVisitedCatalogueModel());
+        jfc = new JFileChooser(model.getLastVisitedCatalogueModel());
+
+        // test label
+        view.setGreenLabel(new JLabel(paintIcon()));
+
     }
 
+//    Initializing view after program run
     public void initView() {
         updateView();
         view.getOpenMenuItem().addActionListener(e -> loadFile());
@@ -58,19 +64,20 @@ public class Controller {
         view.getBackGroundBlueMenuItem().addActionListener(e -> changeBackGroundColor(7));
 
 
-        view.getFontEightPChooserMenuItem().addActionListener(e -> {view.getTextArea().setFont(view.getFontEightPChooserMenuItem().getFont());model.setFontSizeModel("8"); updateView();});
-        view.getFontTeenPChooserMenuItem().addActionListener(e -> {view.getTextArea().setFont(view.getFontTeenPChooserMenuItem().getFont());model.setFontSizeModel("10");updateView();});
-        view.getFontTwelvePChooserMenuItem().addActionListener(e -> {view.getTextArea().setFont(view.getFontTwelvePChooserMenuItem().getFont());model.setFontSizeModel("12");updateView();});
-        view.getFontFourTeenPChooserMenuItem().addActionListener(e -> {view.getTextArea().setFont(view.getFontFourTeenPChooserMenuItem().getFont());model.setFontSizeModel("14");updateView();});
-        view.getFontSixTeenPChooserMenuItem().addActionListener(e -> {view.getTextArea().setFont(view.getFontSixTeenPChooserMenuItem().getFont());model.setFontSizeModel("16");updateView();});
-        view.getFontEightTeenPChooserMenuItem().addActionListener(e -> {view.getTextArea().setFont(view.getFontEightTeenPChooserMenuItem().getFont());model.setFontSizeModel("18");updateView();});
-        view.getFontTwentyPChooserMenuItem().addActionListener(e -> {view.getTextArea().setFont(view.getFontTwentyPChooserMenuItem().getFont());model.setFontSizeModel("20");updateView();});
-        view.getFontTwentyTwoPChooserMenuItem().addActionListener(e -> {view.getTextArea().setFont(view.getFontTwentyTwoPChooserMenuItem().getFont());model.setFontSizeModel("22");updateView();});
-        view.getFontTwentyFourPChooserMenuItem().addActionListener(e -> {view.getTextArea().setFont(view.getFontTwentyFourPChooserMenuItem().getFont());model.setFontSizeModel("24");updateView();});
+        view.getFontEightPChooserMenuItem().addActionListener(e -> {updatePreviousViewLabels(); view.getTextArea().setFont(view.getFontEightPChooserMenuItem().getFont());model.setFontSizeModel("8"); updateView();});
+        view.getFontTeenPChooserMenuItem().addActionListener(e -> {updatePreviousViewLabels(); view.getTextArea().setFont(view.getFontTeenPChooserMenuItem().getFont());model.setFontSizeModel("10");updateView();});
+        view.getFontTwelvePChooserMenuItem().addActionListener(e -> {updatePreviousViewLabels(); view.getTextArea().setFont(view.getFontTwelvePChooserMenuItem().getFont());model.setFontSizeModel("12");updateView();});
+        view.getFontFourTeenPChooserMenuItem().addActionListener(e -> {updatePreviousViewLabels(); view.getTextArea().setFont(view.getFontFourTeenPChooserMenuItem().getFont());model.setFontSizeModel("14");updateView();});
+        view.getFontSixTeenPChooserMenuItem().addActionListener(e -> {updatePreviousViewLabels(); view.getTextArea().setFont(view.getFontSixTeenPChooserMenuItem().getFont());model.setFontSizeModel("16");updateView();});
+        view.getFontEightTeenPChooserMenuItem().addActionListener(e -> {updatePreviousViewLabels(); view.getTextArea().setFont(view.getFontEightTeenPChooserMenuItem().getFont());model.setFontSizeModel("18");updateView();});
+        view.getFontTwentyPChooserMenuItem().addActionListener(e -> {updatePreviousViewLabels(); view.getTextArea().setFont(view.getFontTwentyPChooserMenuItem().getFont());model.setFontSizeModel("20");updateView();});
+        view.getFontTwentyTwoPChooserMenuItem().addActionListener(e -> {updatePreviousViewLabels(); view.getTextArea().setFont(view.getFontTwentyTwoPChooserMenuItem().getFont());model.setFontSizeModel("22");updateView();});
+        view.getFontTwentyFourPChooserMenuItem().addActionListener(e -> {updatePreviousViewLabels(); view.getTextArea().setFont(view.getFontTwentyFourPChooserMenuItem().getFont());model.setFontSizeModel("24");updateView();});
     }
 
 
     private void changeBackGroundColor(int i) {
+        updatePreviousViewLabels();
         switch(i){
             case 1:
                 view.getTextArea().setBackground(Color.GREEN);
@@ -98,6 +105,7 @@ public class Controller {
     }
 
     private void changeForeGroundColor(int i) {
+        updatePreviousViewLabels();
         switch(i){
             case 1:
                 view.getTextArea().setForeground(Color.GREEN);
@@ -159,11 +167,17 @@ public class Controller {
 
 
     private void updateView() {
-        view.getForegroundStatusLabel().setText(model.getForegroundColorModel());
-        view.getBackgroundStatusLabel().setText(model.getBackgroundColorModel());
-        view.getFontSizeStatusLabel().setText(model.getFontSizeModel());
+        view.getForegroundStatusLabel().setText(model.getLastForegroundColorModel());
+        view.getBackgroundStatusLabel().setText(model.getLastBackgroundColorModel());
+        view.getFontSizeStatusLabel().setText(model.getLastFontSizeModel());
         view.getFileStatusLabel().setText(model.getFileStatusModel());
         view.getFrame().setTitle("Note maker - "+model.getSelectedFileNameNoExtensionModel());
+    }
+
+    private void updatePreviousViewLabels(){
+        model.setLastBackgroundColorModel(model.getBackgroundColorModel());
+        model.setLastForegroundColorModel(model.getForegroundColorModel());
+        model.setLastFontSizeModel(model.getFontSizeModel());
     }
 
     private void loadFile(){
@@ -259,4 +273,11 @@ public class Controller {
         }
     }
 
+//    @Override
+        public void paintIcon(Graphics g) {
+            Graphics2D g2 = (Graphics2D)g;
+            Ellipse2D.Double circle = new Ellipse2D.Double(50, 50, 10, 10);
+            g2.setColor(Color.RED);
+            g2.fill(circle);
+        }
 }
