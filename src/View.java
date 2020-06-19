@@ -8,24 +8,25 @@ import static java.awt.event.ActionEvent.SHIFT_MASK;
 
 public class View {
 
-    JFrame frame;
-    GridLayout statusPanelLayout;
-    FlowLayout settingLayout ,statusLayout;
-    JTextArea textArea;
-    JScrollPane scrollPane;
-    JMenuBar mb;
-    JMenu fileMenu, editMenu, addressSubMenuItem, optionsMenu, foregroundSubMenuItem, backgroundSubMenuItem, fontSizeSubMenuItem;
-    JMenuItem openMenuItem, saveMenuItem, saveAsMenuItem, exitMenuItem,
+    private JFrame frame;
+    private GridLayout statusPanelLayout;
+    private FlowLayout settingLayout ,statusLayout;
+    private JTextArea textArea;
+    private JScrollPane scrollPane;
+    private JMenuBar mb;
+    private JMenu fileMenu, editMenu, addressSubMenuItem, optionsMenu, foregroundSubMenuItem, backgroundSubMenuItem, fontSizeSubMenuItem;
+    private JMenuItem openMenuItem, saveMenuItem, saveAsMenuItem, exitMenuItem,
             workAddressMenuItem, homeAddressMenuItem, schoolAddressMenuItem,
             foreGroundChooserMenuItem, backGroundChooserMenuItem, fontSizeChooserMenuItem,
             fontEightPChooserMenuItem, fontTeenPChooserMenuItem, fontTwelvePChooserMenuItem, fontFourTeenPChooserMenuItem, fontSixTeenPChooserMenuItem,
             fontEightTeenPChooserMenuItem, fontTwentyPChooserMenuItem, fontTwentyTwoPChooserMenuItem, fontTwentyFourPChooserMenuItem;
 
-    JRadioButtonMenuItem foreGroundGreenMenuItem, foreGroundOrangeMenuItem, foreGroundRedMenuItem, foreGroundBlackMenuItem, foreGroundWhiteMenuItem, foreGroundYellowMenuItem, foreGroundBlueMenuItem,
+    private JRadioButtonMenuItem foreGroundGreenMenuItem, foreGroundOrangeMenuItem, foreGroundRedMenuItem, foreGroundBlackMenuItem, foreGroundWhiteMenuItem, foreGroundYellowMenuItem, foreGroundBlueMenuItem,
             backGroundGreenMenuItem, backGroundOrangeMenuItem, backGroundRedMenuItem,backGroundBlackMenuItem, backGroundWhiteMenuItem, backGroundYellowMenuItem, backGroundBlueMenuItem;
-    JPanel statusPanel, statusInformationSubPanel,  settingsInformationSubPanel;
-    JLabel foregroundStatusLabel, backgroundStatusLabel, fontSizeStatusLabel, fileStatusLabel;
-    ButtonGroup menuForeGroundRadioButtonGroup, menuBackGroundRadioButtonGroup;
+
+    private JPanel statusPanel, statusInformationSubPanel,  settingsInformationSubPanel;
+    private JLabel foregroundStatusLabel, backgroundStatusLabel, fontSizeStatusLabel, fileStatusLabel;
+    private ButtonGroup menuForeGroundRadioButtonGroup, menuBackGroundRadioButtonGroup;
 
     public View() {
         frame = new JFrame();
@@ -113,6 +114,7 @@ public class View {
         foreGroundRedMenuItem = new JRadioButtonMenuItem("Red");
         foreGroundRedMenuItem.setForeground(Color.RED);
         foreGroundBlackMenuItem = new JRadioButtonMenuItem("Black");
+        foreGroundBlackMenuItem.setSelected(true);
         foreGroundBlackMenuItem.setForeground(Color.BLACK);
         foreGroundWhiteMenuItem = new JRadioButtonMenuItem("White");
         foreGroundWhiteMenuItem.setForeground(Color.WHITE);
@@ -149,6 +151,7 @@ public class View {
         backGroundRedMenuItem = new JRadioButtonMenuItem("Red");
         backGroundRedMenuItem.setForeground(Color.RED);
         backGroundBlackMenuItem = new JRadioButtonMenuItem("Black");
+        backGroundBlackMenuItem.setSelected(true);
         backGroundBlackMenuItem.setForeground(Color.BLACK);
         backGroundWhiteMenuItem = new JRadioButtonMenuItem("White");
         backGroundWhiteMenuItem.setForeground(Color.WHITE);
@@ -429,5 +432,197 @@ public class View {
 
     public JFrame getFrame() {
         return frame;
+    }
+
+    public ButtonGroup getMenuForeGroundRadioButtonGroup() {
+        return menuForeGroundRadioButtonGroup;
+    }
+
+    public void setMenuForeGroundRadioButtonGroup(ButtonGroup menuForeGroundRadioButtonGroup) {
+        this.menuForeGroundRadioButtonGroup = menuForeGroundRadioButtonGroup;
+    }
+
+    public JMenuItem getFontEightPChooserMenuItem() {
+        return fontEightPChooserMenuItem;
+    }
+
+    public void setFontEightPChooserMenuItem(JMenuItem fontEightPChooserMenuItem) {
+        this.fontEightPChooserMenuItem = fontEightPChooserMenuItem;
+    }
+
+    public JMenuItem getFontTeenPChooserMenuItem() {
+        return fontTeenPChooserMenuItem;
+    }
+
+    public void setFontTeenPChooserMenuItem(JMenuItem fontTeenPChooserMenuItem) {
+        this.fontTeenPChooserMenuItem = fontTeenPChooserMenuItem;
+    }
+
+    public JMenuItem getFontTwelvePChooserMenuItem() {
+        return fontTwelvePChooserMenuItem;
+    }
+
+    public void setFontTwelvePChooserMenuItem(JMenuItem fontTwelvePChooserMenuItem) {
+        this.fontTwelvePChooserMenuItem = fontTwelvePChooserMenuItem;
+    }
+
+    public JMenuItem getFontFourTeenPChooserMenuItem() {
+        return fontFourTeenPChooserMenuItem;
+    }
+
+    public void setFontFourTeenPChooserMenuItem(JMenuItem fontFourTeenPChooserMenuItem) {
+        this.fontFourTeenPChooserMenuItem = fontFourTeenPChooserMenuItem;
+    }
+
+    public JMenuItem getFontSixTeenPChooserMenuItem() {
+        return fontSixTeenPChooserMenuItem;
+    }
+
+    public void setFontSixTeenPChooserMenuItem(JMenuItem fontSixTeenPChooserMenuItem) {
+        this.fontSixTeenPChooserMenuItem = fontSixTeenPChooserMenuItem;
+    }
+
+    public JMenuItem getFontEightTeenPChooserMenuItem() {
+        return fontEightTeenPChooserMenuItem;
+    }
+
+    public void setFontEightTeenPChooserMenuItem(JMenuItem fontEightTeenPChooserMenuItem) {
+        this.fontEightTeenPChooserMenuItem = fontEightTeenPChooserMenuItem;
+    }
+
+    public JMenuItem getFontTwentyPChooserMenuItem() {
+        return fontTwentyPChooserMenuItem;
+    }
+
+    public void setFontTwentyPChooserMenuItem(JMenuItem fontTwentyPChooserMenuItem) {
+        this.fontTwentyPChooserMenuItem = fontTwentyPChooserMenuItem;
+    }
+
+    public JMenuItem getFontTwentyTwoPChooserMenuItem() {
+        return fontTwentyTwoPChooserMenuItem;
+    }
+
+    public void setFontTwentyTwoPChooserMenuItem(JMenuItem fontTwentyTwoPChooserMenuItem) {
+        this.fontTwentyTwoPChooserMenuItem = fontTwentyTwoPChooserMenuItem;
+    }
+
+    public JMenuItem getFontTwentyFourPChooserMenuItem() {
+        return fontTwentyFourPChooserMenuItem;
+    }
+
+    public void setFontTwentyFourPChooserMenuItem(JMenuItem fontTwentyFourPChooserMenuItem) {
+        this.fontTwentyFourPChooserMenuItem = fontTwentyFourPChooserMenuItem;
+    }
+
+    public JRadioButtonMenuItem getForeGroundGreenMenuItem() {
+        return foreGroundGreenMenuItem;
+    }
+
+    public void setForeGroundGreenMenuItem(JRadioButtonMenuItem foreGroundGreenMenuItem) {
+        this.foreGroundGreenMenuItem = foreGroundGreenMenuItem;
+    }
+
+    public JRadioButtonMenuItem getForeGroundOrangeMenuItem() {
+        return foreGroundOrangeMenuItem;
+    }
+
+    public void setForeGroundOrangeMenuItem(JRadioButtonMenuItem foreGroundOrangeMenuItem) {
+        this.foreGroundOrangeMenuItem = foreGroundOrangeMenuItem;
+    }
+
+    public JRadioButtonMenuItem getForeGroundRedMenuItem() {
+        return foreGroundRedMenuItem;
+    }
+
+    public void setForeGroundRedMenuItem(JRadioButtonMenuItem foreGroundRedMenuItem) {
+        this.foreGroundRedMenuItem = foreGroundRedMenuItem;
+    }
+
+    public JRadioButtonMenuItem getForeGroundBlackMenuItem() {
+        return foreGroundBlackMenuItem;
+    }
+
+    public void setForeGroundBlackMenuItem(JRadioButtonMenuItem foreGroundBlackMenuItem) {
+        this.foreGroundBlackMenuItem = foreGroundBlackMenuItem;
+    }
+
+    public JRadioButtonMenuItem getForeGroundWhiteMenuItem() {
+        return foreGroundWhiteMenuItem;
+    }
+
+    public void setForeGroundWhiteMenuItem(JRadioButtonMenuItem foreGroundWhiteMenuItem) {
+        this.foreGroundWhiteMenuItem = foreGroundWhiteMenuItem;
+    }
+
+    public JRadioButtonMenuItem getForeGroundYellowMenuItem() {
+        return foreGroundYellowMenuItem;
+    }
+
+    public void setForeGroundYellowMenuItem(JRadioButtonMenuItem foreGroundYellowMenuItem) {
+        this.foreGroundYellowMenuItem = foreGroundYellowMenuItem;
+    }
+
+    public JRadioButtonMenuItem getForeGroundBlueMenuItem() {
+        return foreGroundBlueMenuItem;
+    }
+
+    public void setForeGroundBlueMenuItem(JRadioButtonMenuItem foreGroundBlueMenuItem) {
+        this.foreGroundBlueMenuItem = foreGroundBlueMenuItem;
+    }
+
+    public JRadioButtonMenuItem getBackGroundGreenMenuItem() {
+        return backGroundGreenMenuItem;
+    }
+
+    public void setBackGroundGreenMenuItem(JRadioButtonMenuItem backGroundGreenMenuItem) {
+        this.backGroundGreenMenuItem = backGroundGreenMenuItem;
+    }
+
+    public JRadioButtonMenuItem getBackGroundOrangeMenuItem() {
+        return backGroundOrangeMenuItem;
+    }
+
+    public void setBackGroundOrangeMenuItem(JRadioButtonMenuItem backGroundOrangeMenuItem) {
+        this.backGroundOrangeMenuItem = backGroundOrangeMenuItem;
+    }
+
+    public JRadioButtonMenuItem getBackGroundRedMenuItem() {
+        return backGroundRedMenuItem;
+    }
+
+    public void setBackGroundRedMenuItem(JRadioButtonMenuItem backGroundRedMenuItem) {
+        this.backGroundRedMenuItem = backGroundRedMenuItem;
+    }
+
+    public JRadioButtonMenuItem getBackGroundBlackMenuItem() {
+        return backGroundBlackMenuItem;
+    }
+
+    public void setBackGroundBlackMenuItem(JRadioButtonMenuItem backGroundBlackMenuItem) {
+        this.backGroundBlackMenuItem = backGroundBlackMenuItem;
+    }
+
+    public JRadioButtonMenuItem getBackGroundWhiteMenuItem() {
+        return backGroundWhiteMenuItem;
+    }
+
+    public void setBackGroundWhiteMenuItem(JRadioButtonMenuItem backGroundWhiteMenuItem) {
+        this.backGroundWhiteMenuItem = backGroundWhiteMenuItem;
+    }
+
+    public JRadioButtonMenuItem getBackGroundYellowMenuItem() {
+        return backGroundYellowMenuItem;
+    }
+
+    public void setBackGroundYellowMenuItem(JRadioButtonMenuItem backGroundYellowMenuItem) {
+        this.backGroundYellowMenuItem = backGroundYellowMenuItem;
+    }
+
+    public JRadioButtonMenuItem getBackGroundBlueMenuItem() {
+        return backGroundBlueMenuItem;
+    }
+
+    public void setBackGroundBlueMenuItem(JRadioButtonMenuItem backGroundBlueMenuItem) {
+        this.backGroundBlueMenuItem = backGroundBlueMenuItem;
     }
 }
